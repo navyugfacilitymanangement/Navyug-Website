@@ -412,17 +412,19 @@
             font-size: 0.85rem;
             color: #64748b;
         }
-        /* Contact Section - Fixed for mobile */
+        /* Contact Section - Fully responsive */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             background: #f8fafc;
             border-radius: 12px;
-            overflow: hidden; /* Prevents border-radius clipping issues */
+            overflow: hidden;
+            width: 100%;
         }
         .contact-content {
             padding: 3rem;
+            width: 100%;
         }
         .contact-content h2 {
             font-size: 2rem;
@@ -440,23 +442,26 @@
         }
         .contact-item {
             display: flex;
-            align-items: flex-start; /* Align items to top for better wrapping */
+            align-items: flex-start;
             gap: 1rem;
             margin-bottom: 1rem;
             color: #334155;
+            word-break: break-word; /* Prevents long text from overflowing */
         }
         .contact-item i {
             color: #f5821f;
             width: 20px;
-            flex-shrink: 0; /* Prevent icon from shrinking */
+            flex-shrink: 0;
             margin-top: 0.2rem;
         }
         .contact-form {
             background: white;
             padding: 3rem;
+            width: 100%;
         }
         .form-group {
             margin-bottom: 1.5rem;
+            width: 100%;
         }
         .form-group input,
         .form-group textarea {
@@ -466,6 +471,7 @@
             border-radius: 4px;
             font-family: inherit;
             font-size: 0.95rem;
+            max-width: 100%; /* Prevents overflow */
         }
         .form-group textarea {
             min-height: 100px;
@@ -580,17 +586,20 @@
             .footer-grid {
                 grid-template-columns: 1fr;
             }
-            /* Fix contact section on mobile */
+            /* Contact section mobile fixes */
             .contact-grid {
                 grid-template-columns: 1fr;
-                gap: 0; /* Remove gap to avoid extra spacing */
+                gap: 0;
             }
             .contact-content,
             .contact-form {
-                padding: 2rem; /* Reduce padding for small screens */
+                padding: 1.5rem; /* Reduced padding for small screens */
             }
             .hero-content h1 {
                 font-size: 2.2rem;
+            }
+            .contact-item {
+                word-break: break-word;
             }
         }
     </style>
@@ -664,7 +673,7 @@
                     </div>
                     <div class="director-card">
                         <div class="director-img">
-                            <img src="https://drive.google.com/thumbnail?id=1vgcdiLfdaRxhuriCyt3ONaIMuAxZqYGw&sz=w1000" alt="Brahmjeet">
+                            <img src="https://drive.google.com/thumbnail?id=1vgcdiLfdaRxhuriCyt3ONaIMuAxZqYGw&sz=w1000" alt="Yogendra Singh">
                         </div>
                         <h4>YOGENDRA SINGH</h4>
                         <p>Director</p>
@@ -672,7 +681,7 @@
                     </div>
                     <div class="director-card">
                         <div class="director-img">
-                            <img src="https://drive.google.com/thumbnail?id=1mQs-Ju0bdESaGsQwUf05j7q9Da-xGWUe&sz=w1000" alt="Yogendra Singh">
+                            <img src="https://drive.google.com/thumbnail?id=1mQs-Ju0bdESaGsQwUf05j7q9Da-xGWUe&sz=w1000" alt="Brahmjeet">
                         </div>
                         <h4>BRAHMJEET</h4>
                         <p>Director</p>
@@ -814,7 +823,7 @@
             </div>
         </section>
 
-        <!-- Contact Section (Fixed for mobile) -->
+        <!-- Contact Section - Fixed for mobile and working form -->
         <section id="contact" style="padding: 5rem 0;">
             <div class="container">
                 <div class="contact-grid">
@@ -845,12 +854,13 @@
                         </div>
                     </div>
                     <div class="contact-form">
-                        <form action="#" method="post">
+                        <!-- Formspree endpoint - replace with your own after testing -->
+                        <form action="https://formspree.io/f/mzzdnjol" method="POST">
                             <div class="form-group">
                                 <input type="text" id="name" name="name" placeholder="Your Name" required>
                             </div>
                             <div class="form-group">
-                                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                                <input type="email" id="email" name="_replyto" placeholder="Email Address" required>
                             </div>
                             <div class="form-group">
                                 <input type="tel" id="phone" name="phone" placeholder="Phone Number">
@@ -858,6 +868,8 @@
                             <div class="form-group">
                                 <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
                             </div>
+                            <!-- Optional: hidden field to set subject -->
+                            <input type="hidden" name="_subject" value="New Contact from Navyug Website">
                             <button type="submit" class="btn" style="width: 100%;">Send Message</button>
                         </form>
                     </div>
