@@ -412,14 +412,14 @@
             font-size: 0.85rem;
             color: #64748b;
         }
-        /* Contact Section */
+        /* Contact Section - Fixed for mobile */
         .contact-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 3rem;
             background: #f8fafc;
             border-radius: 12px;
-            overflow: hidden;
+            overflow: hidden; /* Prevents border-radius clipping issues */
         }
         .contact-content {
             padding: 3rem;
@@ -440,7 +440,7 @@
         }
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* Align items to top for better wrapping */
             gap: 1rem;
             margin-bottom: 1rem;
             color: #334155;
@@ -448,6 +448,8 @@
         .contact-item i {
             color: #f5821f;
             width: 20px;
+            flex-shrink: 0; /* Prevent icon from shrinking */
+            margin-top: 0.2rem;
         }
         .contact-form {
             background: white;
@@ -575,16 +577,20 @@
             .mission-vision,
             .commitment-grid,
             .insights-grid,
-            .contact-grid,
             .footer-grid {
                 grid-template-columns: 1fr;
             }
-            .hero-content h1 {
-                font-size: 2.2rem;
+            /* Fix contact section on mobile */
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 0; /* Remove gap to avoid extra spacing */
             }
             .contact-content,
             .contact-form {
-                padding: 2rem;
+                padding: 2rem; /* Reduce padding for small screens */
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -808,7 +814,7 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section (Fixed for mobile) -->
         <section id="contact" style="padding: 5rem 0;">
             <div class="container">
                 <div class="contact-grid">
