@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navyug Facility Management Pvt. Ltd.</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.5;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        /* Header & Navigation */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #eef2f6;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 0;
+        }
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #0f3b5e;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #334155;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #f5821f;
+        }
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #0f3b5e;
+        }
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            background-color: #f5821f;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e06d00;
+        }
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid #f5821f;
+            color: #f5821f;
+        }
+        .btn-outline:hover {
+            background-color: #f5821f;
+            color: white;
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #0f3b5e 0%, #1a4d70 100%);
+            color: white;
+            padding: 5rem 0 6rem;
+        }
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+        .hero-content p {
+            font-size: 1.125rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            max-width: 90%;
+        }
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2.5rem;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f5821f;
+        }
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .hero-image {
+            background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+            height: 350px;
+            border-radius: 8px;
+        }
+        /* Section Headers */
+        .section-header {
+            margin-bottom: 3rem;
+        }
+        .section-header h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0f3b5e;
+            margin-bottom: 0.75rem;
+            letter-spacing: -0.02em;
+        }
+        .section-header p {
+            font-size: 1.1rem;
+            color: #64748b;
+            max-width: 600px;
+        }
+        .section-header.centered {
+            text-align: center;
+        }
+        .section-header.centered p {
+            margin: 0 auto;
+        }
+        /* Services Grid - 2 columns */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .service-card {
+            position: relative;
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 8px;
+            padding: 2rem;
+            transition: box-shadow 0.3s, transform 0.3s;
+            min-height: 280px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .service-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transform: translateY(-5px);
+        }
+        .service-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(245, 130, 31, 0.1);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: #f5821f;
+            font-size: 1.5rem;
+        }
+        .service-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f3b5e;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .service-card p {
+            color: #475569;
+            font-size: 0.95rem;
+            text-align: center;
+        }
+        /* Hidden detail content for overlay */
+        .service-detail {
+            display: none;
+        }
+        /* Full-screen overlay */
+        .service-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+        }
+        .service-overlay.active {
+            visibility: visible;
+            opacity: 1;
+        }
+        .overlay-content {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 12px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+        }
+        .overlay-content h4 {
+            color: #0f3b5e;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #f5821f;
+            padding-bottom: 0.5rem;
+        }
+        .overlay-content p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        .close-overlay {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #999;
+            transition: color 0.3s;
+        }
+        .close-overlay:hover {
+            color: #f5821f;
+        }
+        /* Directors Grid */
+        .directors-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        .director-card {
+            background: #fff;
+            border: 1px solid #eef2f6;
+            border-radius: 8px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+        }
+        .director-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            overflow: hidden;
+        }
+        .director-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .director-card h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f3b5e;
+            margin-bottom: 0.5rem;
+        }
+        .director-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        /* Mission & Vision Cards */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .mv-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+        }
+        .mv-card h3 {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #0f3b5e;
+            margin-bottom: 1rem;
+        }
+        .mv-card p {
+            color: #475569;
+            line-height: 1.6;
+        }
+        /* Commitment Section (Values) */
+        .commitment-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .commitment-card {
+            text-align: center;
+            padding: 2rem;
+            background: #f8fafc;
+            border-radius: 8px;
+        }
+        .commitment-icon {
+            width: 56px;
+            height: 56px;
+            background: #0f3b5e;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            color: white;
+            font-size: 1.5rem;
+        }
+        .commitment-card h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f3b5e;
+            margin-bottom: 1rem;
+        }
+        .commitment-card p {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        /* Insights Section */
+        .insights-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .insight-card {
+            background: #ffffff;
+            border: 1px solid #eef2f6;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .insight-image {
+            height: 200px;
+            background-color: #f8fafc;
+            background-size: cover;
+            background-position: center;
+        }
+        .insight-content {
+            padding: 1.5rem;
+        }
+        .insight-tag {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #f5821f;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        .insight-content h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #0f3b5e;
+            margin-bottom: 0.75rem;
+        }
+        .insight-content p {
+            color: #475569;
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+        .insight-meta {
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+        /* Contact Section */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: #f8fafc;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .contact-content {
+            padding: 3rem;
+        }
+        .contact-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f3b5e;
+            margin-bottom: 1rem;
+        }
+        .contact-content p {
+            color: #475569;
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+        .contact-details {
+            margin-top: 2rem;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            color: #334155;
+        }
+        .contact-item i {
+            color: #f5821f;
+            width: 20px;
+        }
+        .contact-form {
+            background: white;
+            padding: 3rem;
+        }
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+        .form-group textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+        /* Footer */
+        footer {
+            background-color: #0f3b5e;
+            color: white;
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.5fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        .footer-col h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: white;
+        }
+        .footer-col p {
+            color: #cbd5e1;
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        .footer-col ul {
+            list-style: none;
+        }
+        .footer-col ul li {
+            margin-bottom: 0.75rem;
+        }
+        .footer-col a {
+            color: #cbd5e1;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+        .footer-col a:hover {
+            color: #f5821f;
+        }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: #94a3b8;
+            font-size: 0.85rem;
+        }
+        .legal-links {
+            display: flex;
+            gap: 2rem;
+        }
+        .legal-links a {
+            color: #94a3b8;
+            text-decoration: none;
+        }
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .services-grid,
+            .directors-grid,
+            .commitment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                background: white;
+                padding: 1rem 0;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.05);
+                gap: 0;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .nav-links li {
+                margin: 0;
+                text-align: center;
+                padding: 0.75rem 0;
+            }
+            .hero-grid,
+            .services-grid,
+            .directors-grid,
+            .mission-vision,
+            .commitment-grid,
+            .insights-grid,
+            .contact-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            .contact-content,
+            .contact-form {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="#home">Navyug FM</a></div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#insights">Insights</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-grid">
+                    <div class="hero-content">
+                        <h1>Specialist in Building Facility Management</h1>
+                        <p>With over 20 years of industry expertise, we deliver comprehensive, reliable, and customized facility solutions for businesses of every size.</p>
+                        <a href="#contact" class="btn">Get in Touch</a>
+                        <div class="hero-stats">
+                            <div class="stat-item">
+                                <span class="stat-number">20+</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">500+</span>
+                                <span class="stat-label">Clients Served</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number">24/7</span>
+                                <span class="stat-label">Support</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-image"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section with Directors and Mission/Vision -->
+        <section id="about" style="padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>About Navyug Facility Management</h2>
+                    <p>Professionally managed by industry experts with over 20 years of experience</p>
+                </div>
+                <div style="margin-bottom: 3rem;">
+                    <p style="font-size: 1.1rem; color: #475569; max-width: 800px;">Navyug Facility Management (NFM) is a professionally managed organization led by highly experienced industry experts with over 20 years of experience in comprehensive facility management services. We specialize in providing comprehensive, reliable, and customized facility services, enabling our clients to operate in safe, efficient, and well-maintained environments.</p>
+                </div>
+
+                <h3 style="font-size: 1.5rem; font-weight: 600; color: #0f3b5e; margin-bottom: 2rem; text-align: center;">Our Directors</h3>
+                <div class="directors-grid">
+                    <div class="director-card">
+                        <div class="director-img">
+                            <img src="https://drive.google.com/thumbnail?id=1NuWEFtdZVK2PSSB6QuHJ7r99vaeEGmCj&sz=w1000" alt="Megha">
+                        </div>
+                        <h4>MEGHA</h4>
+                        <p>Director</p>
+                        <p>Resident of Uttar Pradesh</p>
+                    </div>
+                    <div class="director-card">
+                        <div class="director-img">
+                            <img src="https://drive.google.com/thumbnail?id=1vgcdiLfdaRxhuriCyt3ONaIMuAxZqYGw&sz=w1000" alt="Brahmjeet">
+                        </div>
+                        <h4>YOGENDRA SINGH</h4>
+                        <p>Director</p>
+                        <p>Resident of Uttar Pradesh</p>
+                    </div>
+                    <div class="director-card">
+                        <div class="director-img">
+                            <img src="https://drive.google.com/thumbnail?id=1mQs-Ju0bdESaGsQwUf05j7q9Da-xGWUe&sz=w1000" alt="Yogendra Singh">
+                        </div>
+                        <h4>BRAHMJEET</h4>
+                        <p>Director</p>
+                        <p>Resident of Uttar Pradesh</p>
+                    </div>
+                </div>
+
+                <div class="mission-vision">
+                    <div class="mv-card">
+                        <h3>Our Mission</h3>
+                        <p>To deliver exceptional, innovative, and sustainable facility management solutions that exceed client expectations. We strive to create safe, clean, and efficient environments by leveraging our deep industry expertise, adopting eco-friendly practices, and fostering a culture of continuous improvement. Our goal is to be the trusted partner that empowers businesses to focus on their core operations while we handle every aspect of facility upkeep with precision and care.</p>
+                    </div>
+                    <div class="mv-card">
+                        <h3>Our Vision</h3>
+                        <p>To become India's most respected and sought-after facility management company, recognized for our unwavering commitment to quality, reliability, and innovation. We envision a future where every facility we manage sets the benchmark for operational excellence, sustainability, and occupant satisfaction. By nurturing talent, embracing technology, and building lasting client relationships, we aim to redefine the standards of facility management across the nation.</p>
+                    </div>
+                </div>
+
+                <div style="margin-top: 3rem; background: #f8fafc; padding: 2rem; border-radius: 8px;">
+                    <p style="color: #0f3b5e; font-weight: 500;"><strong>Incorporated:</strong> 05 February 2026 | <strong>CIN:</strong> U68200UP2026PTC243274 | <strong>PAN:</strong> AALCN2963K | <strong>TAN:</strong> MRTN10413E | <strong>GSTIN:</strong> 09AALCN2963K1ZV</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section with Hover Overlay -->
+        <section id="services" style="padding: 5rem 0; background: #f8fafc;">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2>Our Services</h2>
+                    <p>Comprehensive facility solutions tailored to your needs</p>
+                </div>
+                <div class="services-grid">
+                    <!-- Service Card 1 -->
+                    <div class="service-card" data-service="technical">
+                        <div>
+                            <div class="service-icon"><i class="fas fa-tools"></i></div>
+                            <h3>Technical Services</h3>
+                            <p>Electrical, plumbing, civil repairs, and maintenance.</p>
+                        </div>
+                        <div class="service-detail" id="detail-technical">
+                            <h4>Technical Services</h4>
+                            <p>Comprehensive maintenance of electrical systems, including wiring, switchgear, and lighting. Plumbing services for pipelines, fixtures, and drainage. Civil repair works for walls, flooring, and structural elements. Preventive and breakdown maintenance. Our team ensures all technical aspects of your facility operate smoothly and safely.</p>
+                        </div>
+                    </div>
+                    <!-- Service Card 2 -->
+                    <div class="service-card" data-service="housekeeping">
+                        <div>
+                            <div class="service-icon"><i class="fas fa-broom"></i></div>
+                            <h3>Housekeeping Services</h3>
+                            <p>Skilled manpower, high-quality materials, daily/periodic cleaning.</p>
+                        </div>
+                        <div class="service-detail" id="detail-housekeeping">
+                            <h4>Housekeeping Services</h4>
+                            <p>Professional cleaning staff trained in modern techniques. Use of eco-friendly cleaning agents and advanced equipment. Services include daily office cleaning, deep cleaning, floor care, window cleaning, and sanitation. Customized schedules to suit your needs. We maintain the highest standards of hygiene and appearance.</p>
+                        </div>
+                    </div>
+                    <!-- Service Card 3 -->
+                    <div class="service-card" data-service="security">
+                        <div>
+                            <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                            <h3>Security Services</h3>
+                            <p>24×7 trained personnel, access control, surveillance.</p>
+                        </div>
+                        <div class="service-detail" id="detail-security">
+                            <h4>Security Services</h4>
+                            <p>Deployment of highly trained, licensed security guards. 24/7 monitoring with CCTV surveillance. Access control systems, visitor management, and patrolling. Emergency response and incident reporting. Tailored security plans for residential, commercial, and industrial sites. Your safety is our priority.</p>
+                        </div>
+                    </div>
+                    <!-- Service Card 4 -->
+                    <div class="service-card" data-service="specialized">
+                        <div>
+                            <div class="service-icon"><i class="fas fa-leaf"></i></div>
+                            <h3>Specialized Cleaning</h3>
+                            <p>Deep cleaning, façade cleaning, customized solutions.</p>
+                        </div>
+                        <div class="service-detail" id="detail-specialized">
+                            <h4>Specialized Cleaning</h4>
+                            <p>High-pressure cleaning for exteriors and facades. Carpet and upholstery cleaning using steam technology. Post-construction cleaning, sanitation services, and disinfection. Customized solutions for unique requirements like hospitals, malls, and industrial plants. We tackle the toughest cleaning challenges.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Commitment (Values) -->
+        <section style="padding: 5rem 0;">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2>Our Commitment</h2>
+                    <p>Building a sustainable, inclusive future</p>
+                </div>
+                <div class="commitment-grid">
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fas fa-leaf"></i></div>
+                        <h3>Environmental Stewardship</h3>
+                        <p>Minimizing environmental impact through eco-friendly practices and sustainable facility management solutions.</p>
+                    </div>
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fas fa-users"></i></div>
+                        <h3>Inclusive Culture</h3>
+                        <p>Creating a workplace where every employee feels safe, valued, and heard – because diverse teams thrive.</p>
+                    </div>
+                    <div class="commitment-card">
+                        <div class="commitment-icon"><i class="fas fa-handshake"></i></div>
+                        <h3>Client Partnership</h3>
+                        <p>We bring together expertise, insights, and integrity to realize potential in every client relationship.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Insights Section -->
+        <section id="insights" style="padding: 5rem 0; background: #f8fafc;">
+            <div class="container">
+                <div class="section-header centered">
+                    <h2>Latest Insights</h2>
+                    <p>Market knowledge and industry expertise</p>
+                </div>
+                <div class="insights-grid">
+                    <div class="insight-card">
+                        <div class="insight-image" style="background-image: url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="insight-content">
+                            <div class="insight-tag">Industry Report</div>
+                            <h3>India's warehousing sector sustains momentum with 30 million sq. ft. absorption</h3>
+                            <p>Leasing activity remained strong through H2 2025, driven by e-commerce and third-party logistics.</p>
+                            <div class="insight-meta">February 2026</div>
+                        </div>
+                    </div>
+                    <div class="insight-card">
+                        <div class="insight-image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');"></div>
+                        <div class="insight-content">
+                            <div class="insight-tag">Intelligent Investment</div>
+                            <h3>Union Budget 2026-27: Focus on growth & infrastructure</h3>
+                            <p>The 9th budget emphasizes fiscal discipline while boosting real estate and facility management sectors.</p>
+                            <div class="insight-meta">February 2026</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="padding: 5rem 0;">
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-content">
+                        <h2>Let us do the hard work</h2>
+                        <p>Complete the form and our professionals will reach out to help you with your facility management requirements.</p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Shop No. 58, Ground Floor, Omaxe Arcade, Near Ansal Golf Link-1, Greater Noida - 201310</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-phone"></i>
+                                <span>+91 7217778408, +91 9599451621</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-envelope"></i>
+                                <span>navyugfacilitymanagement@gmail.com</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>PAN: AALCN2963K | TAN: MRTN10413E</span>
+                            </div>
+                            <div class="contact-item">
+                                <i class="fas fa-id-card"></i>
+                                <span>GSTIN: 09AALCN2963K1ZV | CIN: U68200UP2026PTC243274</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <form action="#" method="post">
+                            <div class="form-group">
+                                <input type="text" id="name" name="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Email Address" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="tel" id="phone" name="phone" placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" name="message" placeholder="How can we help you?" required></textarea>
+                            </div>
+                            <button type="submit" class="btn" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Navyug Facility Management Pvt. Ltd.</h3>
+                    <p>Specialist in Building Facility Management. Incorporated on 05 Feb 2026.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#insights">Insights</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Technical Services</a></li>
+                        <li><a href="#">Housekeeping</a></li>
+                        <li><a href="#">Security Services</a></li>
+                        <li><a href="#">Specialized Cleaning</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Greater Noida - 201310</li>
+                        <li><i class="fas fa-phone"></i> +91 7217778408</li>
+                        <li><i class="fas fa-envelope"></i> navyugfacilitymanagement@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>&copy; 2026 Navyug Facility Management Pvt. Ltd. All rights reserved.</div>
+                <div class="legal-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Full-screen Service Overlay -->
+    <div class="service-overlay" id="serviceOverlay">
+        <div class="overlay-content" id="overlayContent">
+            <span class="close-overlay" id="closeOverlay">&times;</span>
+            <div id="overlayDetails"></div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navLinks = document.getElementById('navLinks');
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        // Close mobile menu when a link is clicked
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // ===== Full-screen Service Overlay =====
+        const overlay = document.getElementById('serviceOverlay');
+        const overlayDetails = document.getElementById('overlayDetails');
+        const closeOverlay = document.getElementById('closeOverlay');
+        let hideTimeout = null;
+
+        function showOverlay(serviceCard) {
+            const detailDiv = serviceCard.querySelector('.service-detail');
+            if (detailDiv) {
+                overlayDetails.innerHTML = detailDiv.innerHTML;
+                overlay.classList.add('active');
+            }
+        }
+
+        function hideOverlay() {
+            overlay.classList.remove('active');
+        }
+
+        document.querySelectorAll('.service-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
+                showOverlay(card);
+            });
+
+            card.addEventListener('mouseleave', () => {
+                hideTimeout = setTimeout(() => {
+                    hideOverlay();
+                    hideTimeout = null;
+                }, 200);
+            });
+        });
+
+        overlay.addEventListener('mouseenter', () => {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+        });
+
+        overlay.addEventListener('mouseleave', () => {
+            hideTimeout = setTimeout(() => {
+                hideOverlay();
+                hideTimeout = null;
+            }, 200);
+        });
+
+        closeOverlay.addEventListener('click', () => {
+            if (hideTimeout) {
+                clearTimeout(hideTimeout);
+                hideTimeout = null;
+            }
+            hideOverlay();
+        });
+
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                if (hideTimeout) {
+                    clearTimeout(hideTimeout);
+                    hideTimeout = null;
+                }
+                hideOverlay();
+            }
+        });
+    </script>
+</body>
+</html>
